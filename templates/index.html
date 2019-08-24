@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Mission to Mars</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  
+  /<!--Solution copied from web-->
+  <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='styles/style.css') }}">
+
+
+</head>
+
+<body>
+  
+  <div class="container-fluid">
+    <div class="jumbotron text-center">
+      <h1>Mission to Mars</h1>
+      <p><a class="btn btn-primary btn-lg" href="/scrape" role="button">Scrate New Data</a></p>
+    </div> 
+  </div>
+  </div> <!--NASA Mars News-->
+    <h1>Latest Mars News</h1>
+    <h3>{{ mars_data.news_title }}</h3>
+    <p>{{ mars_data.news_p }}</p>
+  </div>
+
+  <div class="container-fluid"> <!--Container-->
+    <div class="row"> <!--Row-->
+      <div class="col-lg-6"> <!--Column 1-->
+        <div> <!--Featured Mars Image-->
+          <h2>Featured Mars Image</h2>
+          <img src="{{ mars_data.featured_image_url }}" alt="Feature">
+        </div> <!--Featured Mars Image-->
+      </div> <!--Column 1-->
+      <br> <!--Line Break-->
+      <div class="col-lg-6"> <!--Column 2-->
+        <div class="card" style="width: 20rem;"> <!--Mars Weather-->
+          <div class="card-body">
+            <div> 
+              <h4 class="card-title">
+                Current Weather on Mars
+              </h4>
+              <p>{{ mars_data.mars_weather }}</p>
+            </div>
+          </div>    
+        </div> <!--Mars Weather-->
+            
+        <div> <!--Mars Facts Table-->
+          <h3>Mars Facts</h3>
+          <br>
+          <table border="1" class="dataframe">
+            <thead>
+              <tr style="text-align: right;">
+                <th></th>
+                <th>Mars - Earth Comparison</th>
+                <th>Mars</th>
+                <th>Earth</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th>0</th>
+                <td>Diameter:</td>
+                <td>6,779 km</td>
+                <td>12,742 km</td>
+              </tr>
+              <tr>
+                <th>1</th>
+                <td>Mass:</td>
+                <td>6.39 x 10^23 kg</td>
+                <td>5.97 x 10^24 kg</td>
+              </tr>
+              <tr>
+                <th>2</th>
+                <td>Moons:</td>
+                <td>2</td>
+                <td>1</td>
+              </tr>
+              <tr>
+                <th>3</th>
+                <td>Distance from Sun:</td>
+                <td>227,943,824 km</td>
+                <td>149,598,262 km</td>
+              </tr>
+              <tr>
+                <th>4</th>
+                <td>Length of Year:</td>
+                <td>687 Earth days</td>
+                <td>365.24 days</td>
+              </tr>
+              <tr>
+                <th>5</th>
+                <td>Temperature:</td>
+                <td>-153 to 20 C</td>
+                <td>-88 to 58 C</td>
+              </tr>
+            </tbody>
+          </table>
+
+        </div> <!--Mars Facts Table-->
+      </div> <!--Column 2-->
+      
+
+
+    </div><!--Row-->
+  </div><!--Container-->
+<br>
+
+
+<!--TEST-->
+
+<div class="container">
+  <div class="row"> <!--Row1-->
+    <div class="col-sm-6"> <!--Column1.1-->
+      <div class="card" style="width: 18rem;">
+        <img class="card-img-top" src="{{ mars_data.hemisphere_image_urls[0]['img_url'] }}" alt="Card image cap">
+        <div class="card-body">
+          <h5 class="card-title">{{ mars_data.hemisphere_image_urls[0]['title']}}</h5>
+        </div>
+      </div>
+    </div> <!--Column1.1-->
+    <div class="col-sm-6"> <!--Column1.2-->
+      <div class="card" style="width: 18rem;">
+          <img class="card-img-top" src="{{ mars_data.hemisphere_image_urls[1]['img_url'] }}" alt="Card image cap">
+          <div class="card-body">
+            <h5 class="card-title">{{ mars_data.hemisphere_image_urls[1]['title']}}</h5>
+          </div>
+      </div>
+    </div> <!--Column1.2-->
+  </div><!--Row1-->
+  <div class="row"> <!--Row2-->
+    <div class="col-sm-6"> <!--Column2.1-->
+      <div class="card" style="width: 18rem;">
+        <img class="card-img-top" src="{{ mars_data.hemisphere_image_urls[2]['img_url'] }}" alt="Card image cap">
+        <div class="card-body">
+          <h5 class="card-title">{{ mars_data.hemisphere_image_urls[2]['title']}}</h5>
+        </div>
+      </div>
+      </div> <!--Column1.1-->
+    <div class="col-sm-6"> <!--Column2.2-->
+      <div class="card" style="width: 18rem;">
+        <img class="card-img-top" src="{{ mars_data.hemisphere_image_urls[3]['img_url'] }}" alt="Card image cap">
+        <div class="card-body">
+          <h5 class="card-title">{{ mars_data.hemisphere_image_urls[3]['title']}}</h5>
+        </div>
+      </div>
+    </div> <!--Column1.2-->
+  </div><!--Row2-->
+</div>
+
+  <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <!-- Include all compiled plugins (below), or include individual files as needed -->
+  <script src="js/bootstrap.min.js"></script>
+
+</body>
+
+
+
+</html>
